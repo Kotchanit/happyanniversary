@@ -3,18 +3,50 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'MN Tobiko';
-  src: url('/font/MN Tobiko.ttf') format('truetype');
+  font-family: 'Cider';
+  src: url('/font/FkCiderRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'MN Tobiko';
-  src: url('/font/MN Tobiko Italic.ttf') format('truetype');
+  font-family: 'Cider';
+  src: url('/font/FkCiderBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Cider';
+  src: url('/font/FkCiderThin.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CiderCute';
+  src: url('/font/FkCiderCute.ttf') format('truetype');
   font-weight: normal;
-  font-style: italic;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CiderCute';
+  src: url('/font/FkCiderBoldCute.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: '4Butter';
+  src: url('/font/TCS 4Butter Demo.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -33,12 +65,12 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'MN Tobiko', 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+  font-family: 'CiderCute', 'Cider', 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
   letter-spacing: -0.025em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'MN Tobiko', 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+  font-family: 'CiderCute', 'Cider', 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
@@ -46,4 +78,8 @@ h1, h2, h3, h4, h5, h6 {
 p {
   line-height: 1.6;
   font-weight: 400;
+}
+
+.font-butter {
+  font-family: '4Butter', 'CiderCute', 'Cider', 'Montserrat', Helvetica, Arial, Lucida, sans-serif;;
 }

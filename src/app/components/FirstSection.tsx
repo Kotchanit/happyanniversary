@@ -23,9 +23,9 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
       { fn: () => setStep(4), delay: 16000 },
       { fn: () => setStep(5), delay: 19000 },
       { fn: () => setStep(7), delay: 23000 },
-      { fn: () => setRotateSmiley(true), delay: 26000 },
-      { fn: () => setStep(8), delay: 29000 },
-      { fn: () => setStep(9), delay: 31000 }
+      { fn: () => setRotateSmiley(true), delay: 24000 },
+      { fn: () => setStep(8), delay: 27000 },
+      { fn: () => setStep(9), delay: 29000 }
     ];
 
     timings.forEach(({ fn, delay }) => {
@@ -77,9 +77,9 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
                   key={index}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  transition={{ 
-                    duration: 0.1, 
-                    delay: ("อันย๊องงง".length + "แพรวา".length + 2) * 0.1 + index * 0.1 
+                  transition={{
+                    duration: 0.1,
+                    delay: ("อันย๊องงง".length + "แพรวา".length + 2) * 0.1 + index * 0.1
                   }}
                 >
                   {char}
@@ -170,7 +170,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
         {step === 7 && (
           <motion.div
             key="youarespecial"
-            className="text-4xl md:text-5xl font-bold text-black flex flex-col items-center"
+            className="text-4xl md:text-5xl font-bold text-white flex flex-col items-center"
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1.2, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -198,7 +198,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
         {step === 8 && (
           <motion.p
             key="hope"
-            className="text-4xl md:text-5xl font-bold text-black"
+            className="text-4xl md:text-5xl font-bold text-white"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -212,7 +212,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
       {/* Envelope Appears Centered */}
       {step === 9 && (
         <motion.div
-          className="fixed inset-0 flex items-center justify-center w-full h-full bg-black/20 backdrop-blur-sm z-50"
+          className="fixed inset-0 flex items-center justify-center w-full h-full backdrop-blur-sm z-50"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
@@ -221,12 +221,12 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
           {/* Romantic Guidance Text */}
           {!isOpen && (
             <motion.p
-              className="absolute top-1/3 transform -translate-x-1/2 -translate-y-[120%] text-xl md:text-2xl text-white font-serif italic text-center mb-8 px-4"
-              initial={{ opacity: 0, y: -20 }}
+              className="absolute top-1/3 transform -translate-x-1/2 -translate-y-[80%] text-xl md:text-2xl text-white italic text-center px-4"
+              initial={{ opacity: 0, y: -10 }}
               animate={{
                 opacity: 1,
                 y: 0,
-                scale: [1, 1.05, 1],
+                scale: [1, 1.02, 1],
               }}
               transition={{
                 duration: 2,
@@ -234,10 +234,10 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
                 repeatType: "reverse",
               }}
               style={{
-                textShadow: "0 0 10px rgba(255,255,255,0.5)"
+                textShadow: "0 0 5px rgba(255,255,255,0.5)"
               }}
             >
-              คลิกเพื่อเปิดจดหมายครบรอบพิเศษของคุณ 💌
+              กดเปิดดู<br></br>จดหมายรัก Created by บ.โบ้ทได้เลย 💌 😎
             </motion.p>
           )}
           {/* Envelope Base */}
@@ -273,27 +273,16 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
           {/* Love Letter (Appears when clicked) */}
           {isOpen && (
             <motion.div
-              className="fixed transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[280px] md:max-w-[360px] z-10"
+              className="fixed transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[300px] md:max-w-[360px] z-10"
               initial={{ y: 100, opacity: 0, rotateX: 180 }}
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             >
-              <div className="w-full bg-[#FFF8E7] shadow-2xl rounded-lg p-8 border-2 border-yellow-600/30 text-center transform hover:scale-105 transition-transform duration-300 relative">
-                <h2 className="text-xl md:text-2xl font-serif font-bold text-gray-800 mb-4">ถึงคนที่รัก แพรวา</h2>
-                <p className="text-gray-600 text-base md:text-lg italic font-serif mb-6">ครบรอบ 3 ปีแห่งความรักของเรา! 💖</p>
-                <p className="text-gray-700 text-sm md:text-base font-serif leading-relaxed mb-6 px-4">
-                  สามปีที่แล้ว ในวันนี้ การเดินทางร่วมกันของเราได้เริ่มต้นขึ้น
-                  ตั้งแต่นั้นมา ทุกช่วงเวลากับเธอคือส่วนที่สวยงามที่สุดในชีวิตของพี่
-                </p>
-                <p className="text-gray-700 text-sm md:text-base font-serif leading-relaxed mb-6 px-4">
-                  ขอบคุณที่เป็นความสุข เป็นที่พักใจ และเป็นรักตลอดไปของพี่
-                  ทุกเสียงหัวเราะ ทุกการผจญภัย และทุกช่วงเวลาเงียบๆ ด้วยกัน พี่หวงแหนทุกอย่าง 💕
-                </p>
-                <p className="text-gray-700 text-sm md:text-base font-serif leading-relaxed mb-6 px-4">
-                  พี่สัญญาว่าจะรักหนู สนับสนุนหนู และสร้างความทรงจำที่สวยงามกับหนูไปอีกหลายๆ ปี
-                  นี่เป็นเพียงจุดเริ่มต้นของความรักที่จะอยู่ตลอดไป ❤️
-                </p>
-                <p className="text-pink-500 font-bold font-serif text-lg md:text-xl mt-6">รักหนูตลอดไป พี่บี ❤️</p>
+              <div className="w-full bg-[#FFF8E7] shadow-2xl rounded-lg p-4 border-2 border-yellow-600/30 text-center transform hover:scale-105 transition-transform duration-300 relative">
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">ถึง..แพรวาที่ดั๊กก</h2>
+                <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6 px-4">
+                  สามปีแล้วน้าาา ที่เราคบกันมา เวลาผ่านไปไวมาก ยังจำวันแรกที่เราเจอกันได้อยู่เลย เล่ากี่ทีก็ตลกเหมือนเดิม 555 เราสองคนก็เติบโตกันขึ้นเยอะเลยเนาะ โดยเฉพาะเธอ เธอโตขึ้นมากๆ เป็นผู้ใหญ่ขึ้นมากๆ เธอสอนอะไรหลายๆอย่างในชีวิตให้เค้าเยอะแยะไปหมด มองย้อนกลับไปแล้วเค้าภูมิใจในตัวเธอมากๆ เลยนะงับ ภูมิใจมากๆที่มีเธอเป็นแฟนด้วย  และก็อยากให้รู้ไว้ว่า...  เธอเก่งมากๆ เก่งที่สุดในโลกเลย                </p>
+                <p className="text-pink-500 font-bold text-lg md:text-xl mt-6">คนเก่งของเค้า :)</p>
                 <motion.button
                   className="mt-8 bg-pink-300/20 hover:bg-pink-300/30 text-pink-500 px-4 md:px-6 py-2 md:py-3 rounded-md transition-colors duration-300 flex items-center gap-2 backdrop-blur-lg mx-auto"
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -303,7 +292,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
                   whileTap={{ scale: 0.95 }}
                   onClick={() => onComplete()}
                 >
-                  Next<FaArrowRight className="text-pink-500" />
+                  <FaHeart></FaHeart> ไปกันต่อเล้ยยยย...<FaArrowRight className="text-pink-500" />
                 </motion.button>
               </div>
             </motion.div>

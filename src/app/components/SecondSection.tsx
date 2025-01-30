@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaArrowRight } from "react-icons/fa";
 import { useRef } from "react";
 
 interface SeccondSectionProps {
@@ -136,7 +136,7 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                                 opacity: isInView ? 1 : 0,
                                 scale: isInView ? 1 : 0.8,
                                 transition: {
-                                    delay: anniversaryText.length * 4 + 1.2,
+                                    delay: (anniversaryText.length * 4 + 2.0) + typingText.length * 0.05,
                                     duration: 0.5
                                 }
                             }}
@@ -151,6 +151,28 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                             Send <FaHeart className="text-pink-300/90" />
                         </motion.button>
                     </motion.div>
+                    {/* Button */}
+                    <motion.button
+                        className="mt-8 bg-pink-300/20 hover:bg-pink-300/30 text-pink-300/90 px-4 md:px-6 py-2 md:py-3 rounded-md transition-colors duration-300 flex items-center gap-2 backdrop-blur-lg"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{
+                            opacity: isInView ? 1 : 0,
+                            scale: isInView ? 1 : 0.8,
+                            transition: {
+                                delay: (anniversaryText.length * 4) + (typingText.length * 0.05) + 2,
+                                duration: 0.5
+                            }
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => {
+                            if (onComplete) {
+                                onComplete();
+                            }
+                        }}
+                    >
+                        <FaHeart></FaHeart> ยังไม่จบ ไปกันต่อ... <FaArrowRight className="text-pink-300/90" />
+                    </motion.button>
                 </motion.div>
             </motion.div>
         </div>

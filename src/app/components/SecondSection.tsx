@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { FaHeart, FaArrowRight } from "react-icons/fa";
 import { useRef } from "react";
 
@@ -11,15 +11,11 @@ interface SeccondSectionProps {
 export default function SecondSection({ onComplete }: SeccondSectionProps) {
     const sectionRef = useRef(null);
     const textRef = useRef(null);
-    const { scrollY } = useScroll();
     const isInView = useInView(sectionRef, {
         once: true,
         amount: 0.3,
         margin: "0px 0px -200px 0px"
     });
-
-    const flyUp = useTransform(scrollY, [300, 600], [0, -100]);
-    const rotatedaisy = useTransform(scrollY, [300, 600], [0, 360]);
 
     const anniversaryText = [
         "สุขสันต์วันครบรอบ 3 ปี! 🎉",

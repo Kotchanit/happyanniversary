@@ -1,0 +1,28 @@
+<svg width="200" height="250" viewBox="0 0 200 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="petalGradient" cx="0.5" cy="0.5" r="0.5" fx="0.5" fy="0.5">
+      <stop offset="0%" stop-color="#FFC1D7"/>
+      <stop offset="100%" stop-color="#F7A6C4"/>
+    </radialGradient>
+  </defs>
+  <!-- Stem -->
+  <path d="M100 250C100 250 100 180 100 160C100 140 95 120 95 100" stroke="#2F7A3D" stroke-width="4" stroke-linecap="round"/>
+  <!-- Leaves -->
+  <path d="M95 180C75 170 65 175 55 185C65 185 75 190 95 180Z" fill="#2F7A3D"/>
+  <path d="M105 160C125 150 135 155 145 165C135 165 115 170 105 160Z" fill="#2F7A3D"/>
+  <!-- Rose Petals -->
+  <g transform="translate(100,100)">
+    <!-- Inner Petals -->
+    <path d="M0 0C-20 -20 -10 -40 0 -30C10 -40 20 -20 0 0Z" fill="url(#petalGradient)" transform="rotate(0)"/>
+    <path d="M0 0C-20 -20 -10 -40 0 -30C10 -40 20 -20 0 0Z" fill="url(#petalGradient)" transform="rotate(72)"/>
+    <path d="M0 0C-20 -20 -10 -40 0 -30C10 -40 20 -20 0 0Z" fill="url(#petalGradient)" transform="rotate(144)"/>
+    <path d="M0 0C-20 -20 -10 -40 0 -30C10 -40 20 -20 0 0Z" fill="url(#petalGradient)" transform="rotate(216)"/>
+    <path d="M0 0C-20 -20 -10 -40 0 -30C10 -40 20 -20 0 0Z" fill="url(#petalGradient)" transform="rotate(288)"/>
+    <!-- Outer Petals -->
+    <path d="M0 0C-30 -30 -15 -60 0 -45C15 -60 30 -30 0 0Z" fill="url(#petalGradient)" transform="rotate(36)"/>
+    <path d="M0 0C-30 -30 -15 -60 0 -45C15 -60 30 -30 0 0Z" fill="url(#petalGradient)" transform="rotate(108)"/>
+    <path d="M0 0C-30 -30 -15 -60 0 -45C15 -60 30 -30 0 0Z" fill="url(#petalGradient)" transform="rotate(180)"/>
+    <path d="M0 0C-30 -30 -15 -60 0 -45C15 -60 30 -30 0 0Z" fill="url(#petalGradient)" transform="rotate(252)"/>
+    <path d="M0 0C-30 -30 -15 -60 0 -45C15 -60 30 -30 0 0Z" fill="url(#petalGradient)" transform="rotate(324)"/>
+  </g>
+</svg>

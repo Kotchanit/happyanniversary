@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'MN Tobiko';
+  src: url('/font/MN Tobiko.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MN Tobiko';
+  src: url('/font/MN Tobiko Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,12 +33,12 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+  font-family: 'MN Tobiko', 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
   letter-spacing: -0.025em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
+  font-family: 'MN Tobiko', 'Montserrat', Helvetica, Arial, Lucida, sans-serif;
   letter-spacing: -0.05em;
   font-weight: 600;
 }

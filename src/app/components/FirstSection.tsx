@@ -16,13 +16,16 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
 
   useEffect(() => {
     const timings = [
-      { fn: () => setStep(1), delay: 1500 },
-      { fn: () => setStep(2), delay: 3000 },
-      { fn: () => setHighlight(true), delay: 4500 },
-      { fn: () => setStep(3), delay: 7500 },
-      { fn: () => setStep(4), delay: 8500 },
-      { fn: () => setRotateSmiley(true), delay: 10000 },
-      { fn: () => setStep(5), delay: 11500 }
+      { fn: () => setStep(1), delay: 2000 },
+      { fn: () => setStep(2), delay: 9000 },
+      { fn: () => setHighlight(true), delay: 10000 },
+      { fn: () => setStep(3), delay: 13000 },
+      { fn: () => setStep(4), delay: 16000 },
+      { fn: () => setStep(5), delay: 19000 },
+      { fn: () => setStep(7), delay: 23000 },
+      { fn: () => setRotateSmiley(true), delay: 26000 },
+      { fn: () => setStep(8), delay: 29000 },
+      { fn: () => setStep(9), delay: 31000 }
     ];
 
     timings.forEach(({ fn, delay }) => {
@@ -33,30 +36,69 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#F7A6C4] to-[#F28AB2] relative overflow-hidden">
       {/* Centered Animated Text Section */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center -mt-16 text-center text-white text-lg md:text-2xl font-light">
+      <div className="absolute inset-0 flex flex-col items-center justify-center -mt-16 text-center text-white text-xl md:text-2xl font-light">
         {step === 1 && (
-          <motion.p
+          <motion.div
             key="praewa"
             className="text-3xl md:text-4xl font-bold text-white"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
           >
-            สวัสดีจ้า แพรวา,
-          </motion.p>
+            <p className="text-4xl md:text-6xl">
+              {"อันย๊องงง".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.1, delay: index * 0.1 }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+              {" "}
+              <span className="text-6xl md:text-8xl">
+                {"แพรวา".split("").map((char, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.1, delay: ("อันย๊องงง".length + 1) * 0.1 + index * 0.1 }}
+                  >
+                    {char}
+                  </motion.span>
+                ))}
+              </span>
+            </p>
+            <p>
+              {"เจ้าหม่ามี๊ที่ร้ากของหนู ;D".split("").map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ 
+                    duration: 0.1, 
+                    delay: ("อันย๊องงง".length + "แพรวา".length + 2) * 0.1 + index * 0.1 
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </p>
+          </motion.div>
         )}
 
         {step === 2 && (
           <motion.div
             key="realised-special"
-            className="text-xl md:text-2xl flex flex-col items-center"
+            className="text-3xl md:text-4xl flex flex-col items-center"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
           >
-            <p>พี่มีอะไร</p>
+            <p>ปีนี้เค้ามีของขวัญ</p>
             <motion.p
               key="special"
               className="font-bold text-white mt-2 relative inline-block"
@@ -66,7 +108,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
                   ? {
                     backgroundSize: "100% 100%",
                     fontSize: ["1.5rem", "2rem", "3rem"],
-                    color: ["#ffffff", "#ffffff", "#ff2a99"],
+                    color: ["#ffffff", "#ffffff", "#F7A6C4"],
                   }
                   : {}
               }
@@ -80,37 +122,64 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
                 display: "inline-block",
               }}
             >
-              พิเศษ
+              สุดพิเศษ
             </motion.p>
-            <p className="mt-2">มาให้หนู</p>
+            <p className="mt-2">มาให้เธอด้วย</p>
           </motion.div>
         )}
 
         {step === 3 && (
           <motion.p
             key="because"
-            className="text-xl md:text-2xl"
+            className="text-4xl md:text-6xl"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
           >
-            เพราะว่า,
+            ตื่นเต้นไหม ?
           </motion.p>
         )}
 
         {step === 4 && (
+          <motion.p
+            key="ready"
+            className="text-4xl md:text-6xl"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
+          >
+            พร้อมยัง ?
+          </motion.p>
+        )}
+
+        {step === 5 && (
+          <motion.p
+            key="effort"
+            className="text-4xl md:text-6xl"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 2.5, ease: "easeOut" }}
+          >
+            ตั้งใจทำให้มากเลยนะ อิอิ
+          </motion.p>
+        )}
+
+        {step === 7 && (
           <motion.div
             key="youarespecial"
-            className="text-4xl md:text-5xl font-bold text-black flex items-center"
+            className="text-4xl md:text-5xl font-bold text-black flex flex-col items-center"
             initial={{ opacity: 0, scale: 0.8, y: 10 }}
             animate={{ opacity: 1, scale: 1.2, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
-            You are Special
-            <motion.span
-              className="inline-block ml-[22px]" // Slight spacing tweak
+            <p>เพราะว่า</p>
+            <p>เธอคือคนพิเศษของเค้า</p>
+            <motion.p
+              className="inline-block ml-[22px]"
               initial={{ rotate: 0, scale: 1 }}
               animate={rotateSmiley ? { rotate: 90, scale: 1.3 } : {}}
               transition={{ duration: 1.5, ease: "easeOut" }}
@@ -122,13 +191,26 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
               }}
             >
               :)
-            </motion.span>
+            </motion.p>
           </motion.div>
+        )}
+
+        {step === 8 && (
+          <motion.p
+            key="hope"
+            className="text-4xl md:text-5xl font-bold text-black"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          >
+            หวังว่าเธอจะชอบนะงับ
+          </motion.p>
         )}
       </div>
 
       {/* Envelope Appears Centered */}
-      {step === 5 && (
+      {step === 9 && (
         <motion.div
           className="fixed inset-0 flex items-center justify-center w-full h-full bg-black/20 backdrop-blur-sm z-50"
           initial={{ opacity: 0, y: 50 }}

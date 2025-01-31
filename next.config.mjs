@@ -1,14 +1,27 @@
 /** @type {import('next').NextConfig} */
-const isProd = process.argv.includes("build"); // Detect build command
 
 const nextConfig = {
-  output: "export", // Required for GitHub Pages
-  basePath: isProd ? "/happyanniversary" : "", // Set basePath manually
-  assetPrefix: isProd ? "/happyanniversary/" : "", // Set asset prefix
+  output: "export",
+  basePath: "/happyanniversary",
+  assetPrefix: "/happyanniversary",
   images: {
-    unoptimized: true, // GitHub Pages doesn't support Next.js Image Optimization
+    unoptimized: true,
   },
   trailingSlash: true,
 };
 
 export default nextConfig;
+
+// develop
+// /** @type {import('next').NextConfig} */
+// const isProd = process.env.NODE_ENV === "production";
+
+// const nextConfig = {
+//   output: "export",
+//   images: {
+//     unoptimized: true,
+//   },
+//   trailingSlash: true,
+// };
+
+// export default nextConfig;

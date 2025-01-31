@@ -3,14 +3,14 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const ciderFont = localFont({
-  src: "../../public/font/FkCiderRegular.ttf",
+  src: "/happyanniversary/font/FkCiderRegular.ttf",
   variable: "--font-cider",
 });
 
 export const metadata: Metadata = {
   title: "Happy Anniversary",
   description: "A special anniversary celebration",
-  icons: "/heart-favicon.svg",
+  icons: "/happyanniversary/heart-favicon.svg",
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/heart-favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/happyanniversary/heart-favicon.svg" type="image/svg+xml" />
       </head>
       <body className={`${ciderFont.variable} antialiased`}>
         {children}

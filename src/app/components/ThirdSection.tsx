@@ -73,7 +73,7 @@ export default function ThirdSection() {
         <div className="bg-black/40 border border-[#F7A6C4]/40 p-4 md:p-8 rounded-lg shadow-sm backdrop-blur-sm">
           <h2 className="text-base md:text-xl font-medium mb-2 md:mb-4 text-[#F7A6C4] tracking-wide">การเดินทางของเรา</h2>
           <p className="text-xs md:text-base text-[#F7A6C4]/90 font-extralight leading-loose">
-            ตลอดสามปีที่ผ่านมา เราได้แบ่งปันเสียงหัวเราะมากมาย ผ่านพ้นความท้าทายต่างๆ และสร้างความรักที่เติบโตขึ้นทุกวัน การเดินทางร่วมกันของเราช่างวิเศษเหลือเกิน
+            ตลอดสาคีที่ผ่านมา เราได้แบ่งปันเสียงหัวเราะมากมาย ผ่านพ้นความท้าทายต่างๆ และสร้างความรักที่เติบโตขึ้นทุกวัน การเดินทางร่วมกันของเราช่างวิเศษเหลือเกิน
           </p>
         </div>
 

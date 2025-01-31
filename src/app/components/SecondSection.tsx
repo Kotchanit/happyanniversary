@@ -32,7 +32,7 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
     const typingText = "ขอบคุณเธอนะที่ยังอยู่ข้างๆ กัน คอยอยู่เป็นความสุข เป็นที่พักใจ เป็นความสบายใจให้กันมาเสมอมา แค่หันไปแล้วมีเธออยู่ด้วย เค้าก็รู้สึกอบอุ่นใจ ชีวิตรักของเราเมื่อเวลาผ่านไปมันก็มีทั้งทุกข์ ทั้งสุข มีทะเลาะกันบ้าง มีรักกันมากๆบ้าง แต่ก็คงเป็นธรรมดาของชีวิตแหละที่ต้องมีทั้งทุกข์และสุขปะปนกันไป ขอโทษนะที่บางครั้งทำตัวไม่ดี ทำตัวไม่น่ารักใส่ แล้วก็ต้องขอบคุณเธอนะที่ยังจับมือกันอยู่ สัญญาว่าจะคอยอยู่ข้างๆ อยู่คอยซัพพอร์ทุกการเดินทาง ทุกการเติบโตในชีวิตเธอ เหนื่อยหรือหมดแรงหมดกำลังใจ ก็จะยังมีเค้าอยู่ข้างๆเธอเสมอนะ หันมาเมื่อไหร่ก็จะเจอเค้าแน่นอน";
 
     return (
-        <div className="w-full min-h-screen bg-black">
+        <div className="w-full min-h-screen bg-black flex flex-col items-center justify-center">
             <motion.div
                 ref={sectionRef}
                 className="w-full min-h-screen flex flex-col items-center justify-center relative px-4 py-8 md:p-8"
@@ -103,9 +103,9 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                                     duration: 0.8
                                 }
                             }}
-                            className="bg-black/40 border border-pink-300/50 p-6 md:p-8 rounded-xl backdrop-blur-lg max-w-3xl mx-auto w-full shadow-lg"
+                            className="bg-black/40 border border-pink-300/50 p-8 md:p-12 rounded-xl backdrop-blur-lg max-w-4xl mx-auto w-full shadow-lg relative overflow-hidden"
                         >
-                            <motion.p className="text-base md:text-xl text-pink-300/90 drop-shadow-sm font-extralight leading-relaxed md:leading-loose text-left">
+                            <motion.p className="text-base md:text-xl text-pink-300/90 drop-shadow-sm font-extralight leading-loose md:leading-loose text-left px-4 md:px-8 py-2 md:py-4 max-w-[95%] mx-auto">
                                 {typingText.split("").map((char, index) => (
                                     <motion.span
                                         key={index}

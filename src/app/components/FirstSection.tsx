@@ -221,7 +221,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
           {/* Romantic Guidance Text */}
           {!isOpen && (
             <motion.p
-              className="absolute top-64 transform -translate-x-1/2 -translate-y-1/2 text-xl md:text-2xl text-white italic text-center px-4"
+              className="absolute top-40 transform -translate-x-1/2 -translate-y-1/2 text-xl md:text-2xl text-white italic text-center px-4"
               initial={{ opacity: 0, y: -10 }}
               animate={{
                 opacity: 1,

@@ -289,7 +289,7 @@ export default function ThirdSection() {
               className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-lg overflow-hidden shadow-2xl border-4 border-white/20"
             >
               <Image
-                src="/happyanniversary/anniversary.JPG"
+                src="/happyanniversary/anniversary.jpg"
                 alt="Special Moment Together"
                 fill
                 style={{ objectFit: 'cover' }}

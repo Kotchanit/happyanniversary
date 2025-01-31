@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 const ciderFont = localFont({
-  src: "./font/FkCiderRegular.ttf",
+  src: "../../public/font/FkCiderRegular.ttf",
   variable: "--font-cider",
 });
 

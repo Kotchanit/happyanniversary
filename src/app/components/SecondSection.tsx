@@ -48,7 +48,7 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                     className="text-center w-full max-w-4xl mx-auto px-3 md:px-8"
                 >
                     {/* Text Animation */}
-                    <div className="text-center max-w-3xl mx-auto bg-black/30 p-4 md:p-6 rounded-lg backdrop-blur-lg mt-2 md:mt-4 mb-6 md:mb-12 h-[80px] md:h-[72px] flex items-center justify-center overflow-hidden absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+                    <div className="text-center max-w-3xl mx-auto bg-black/30 p-4 md:p-6 rounded-lg backdrop-blur-lg mt-2 md:mt-4 mb-6 md:mb-12 h-[80px] md:h-[72px] flex items-center justify-center overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
                         {anniversaryText.map((line, index) => (
                             <motion.p
                                 key={index}
@@ -132,7 +132,7 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                                 opacity: isInView ? 1 : 0,
                                 scale: isInView ? 1 : 0.8,
                                 transition: {
-                                    delay: (anniversaryText.length * 4 + 2.0) + typingText.length * 0.05,
+                                    delay: (anniversaryText.length * 4) + (typingText.length * 0.05) + 2,
                                     duration: 0.5
                                 }
                             }}
@@ -144,31 +144,9 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                                 }
                             }}
                         >
-                            Send <FaHeart className="text-pink-300/90" />
+                            <FaHeart></FaHeart> ยังไม่จบ ไปกันต่อ... <FaArrowRight className="text-pink-300/90" />
                         </motion.button>
                     </motion.div>
-                    {/* Button */}
-                    <motion.button
-                        className="mt-8 bg-pink-300/20 hover:bg-pink-300/30 text-pink-300/90 px-4 md:px-6 py-2 md:py-3 rounded-md transition-colors duration-300 flex items-center gap-2 backdrop-blur-lg"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{
-                            opacity: isInView ? 1 : 0,
-                            scale: isInView ? 1 : 0.8,
-                            transition: {
-                                delay: (anniversaryText.length * 4) + (typingText.length * 0.05) + 2,
-                                duration: 0.5
-                            }
-                        }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => {
-                            if (onComplete) {
-                                onComplete();
-                            }
-                        }}
-                    >
-                        <FaHeart></FaHeart> ยังไม่จบ ไปกันต่อ... <FaArrowRight className="text-pink-300/90" />
-                    </motion.button>
                 </motion.div>
             </motion.div>
         </div>

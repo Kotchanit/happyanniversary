@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
+const ciderFont = localFont({
+  src: "../../public/font/FkCiderRegular.ttf",
+  variable: "--font-cider",
 });
 
 export const metadata: Metadata = {
   title: "Happy Anniversary",
   description: "A special anniversary celebration",
-  icons: {
-    icon: "/heart-favicon.svg",
-    shortcut: "/heart-favicon.svg",
-    apple: "/heart-favicon.svg",
-  },
+  icons: "/heart-favicon.svg",
 };
 
 export default function RootLayout({
@@ -24,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} antialiased`}>
+      <head>
+        <link rel="icon" href="/heart-favicon.svg" type="image/svg+xml" />
+      </head>
+      <body className={`${ciderFont.variable} antialiased`}>
         {children}
       </body>
     </html>

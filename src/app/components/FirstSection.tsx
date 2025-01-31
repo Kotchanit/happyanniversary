@@ -221,7 +221,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
           {/* Romantic Guidance Text */}
           {!isOpen && (
             <motion.p
-              className="absolute top-1/3 transform -translate-x-1/2 -translate-y-[80%] text-xl md:text-2xl text-white italic text-center px-4"
+              className="absolute top-64 transform -translate-x-1/2 -translate-y-1/2 text-xl md:text-2xl text-white italic text-center px-4"
               initial={{ opacity: 0, y: -10 }}
               animate={{
                 opacity: 1,
@@ -278,7 +278,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
               animate={{ y: 0, opacity: 1, rotateX: 0 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
             >
-              <div className="w-full bg-[#FFF8E7] shadow-2xl rounded-lg p-4 border-2 border-yellow-600/30 text-center transform hover:scale-105 transition-transform duration-300 relative">
+              <div className="w-full bg-[#FFF8E7] shadow-2xl rounded-lg px-4 py-8 border-2 border-yellow-600/30 text-center transform hover:scale-105 transition-transform duration-300 relative">
                 <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">ถึง..แพรวาที่ดั๊กก</h2>
                 <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6 px-4">
                   สามปีแล้วน้าาา ที่เราคบกันมา เวลาผ่านไปไวมาก ยังจำวันแรกที่เราเจอกันได้อยู่เลย เล่ากี่ทีก็ตลกเหมือนเดิม 555 เราสองคนก็เติบโตกันขึ้นเยอะเลยเนาะ โดยเฉพาะเธอ เธอโตขึ้นมากๆ เป็นผู้ใหญ่ขึ้นมากๆ เธอสอนอะไรหลายๆอย่างในชีวิตให้เค้าเยอะแยะไปหมด มองย้อนกลับไปแล้วเค้าภูมิใจในตัวเธอมากๆ เลยนะงับ ภูมิใจมากๆที่มีเธอเป็นแฟนด้วย  และก็อยากให้รู้ไว้ว่า...  เธอเก่งมากๆ เก่งที่สุดในโลกเลย                </p>

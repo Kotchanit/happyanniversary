@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: 'CiderCute';
-  src: url('/happyanniversary/font/FkCiderCute.ttf') format('truetype');
+  src: url('/font/FkCiderCute.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
   font-family: 'CiderCute';
-  src: url('/happyanniversary/font/FkCiderBoldCute.ttf') format('truetype');
+  src: url('/font/FkCiderBoldCute.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -44,7 +44,7 @@
 
 @font-face {
   font-family: '4Butter';
-  src: url('/happyanniversary/font/TCS 4Butter Demo.ttf') format('truetype');
+  src: url('/font/TCS 4Butter Demo.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;

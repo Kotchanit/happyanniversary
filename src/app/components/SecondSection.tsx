@@ -32,123 +32,126 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
     const typingText = "ขอบคุณเธอนะที่ยังอยู่ข้างๆ กัน คอยอยู่เป็นความสุข เป็นที่พักใจ เป็นความสบายใจให้กันมาเสมอมา แค่หันไปแล้วมีเธออยู่ด้วย เค้าก็รู้สึกอบอุ่นใจ ชีวิตรักของเราเมื่อเวลาผ่านไปมันก็มีทั้งทุกข์ ทั้งสุข มีทะเลาะกันบ้าง มีรักกันมากๆบ้าง แต่ก็คงเป็นธรรมดาของชีวิตแหละที่ต้องมีทั้งทุกข์และสุขปะปนกันไป ขอโทษนะที่บางครั้งทำตัวไม่ดี ทำตัวไม่น่ารักใส่ แล้วก็ต้องขอบคุณเธอนะที่ยังจับมือกันอยู่ สัญญาว่าจะคอยอยู่ข้างๆ อยู่คอยซัพพอร์ทุกการเดินทาง ทุกการเติบโตในชีวิตเธอ เหนื่อยหรือหมดแรงหมดกำลังใจ ก็จะยังมีเค้าอยู่ข้างๆเธอเสมอนะ หันมาเมื่อไหร่ก็จะเจอเค้าแน่นอน";
 
     return (
-        <div className="w-full min-h-screen bg-black flex flex-col items-center justify-center">
-            <motion.div
-                ref={sectionRef}
-                className="w-full min-h-screen flex flex-col items-center justify-center relative px-4 py-8 md:p-8"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 1 }}
-            >
+        <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#F7A6C4] to-[#F28AB2] relative overflow-hidden">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                {/* Content */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 1, delay: 0.3 }}
-                    className="text-center w-full max-w-4xl mx-auto px-3 md:px-8"
+                    ref={sectionRef}
+                    className="w-full min-h-screen flex flex-col items-center justify-center relative px-4 py-8 md:p-8"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 1 }}
                 >
-                    {/* Text Animation */}
-                    <div className="text-center max-w-3xl mx-auto bg-black/30 p-4 md:p-6 rounded-lg backdrop-blur-lg mt-2 md:mt-4 mb-6 md:mb-12 h-[80px] md:h-[72px] flex items-center justify-center overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
-                        {anniversaryText.map((line, index) => (
-                            <motion.p
-                                key={index}
-                                className="text-base md:text-xl text-pink-300/90 font-light absolute px-2"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{
-                                    opacity: isInView ? [0, 1, 1, 0] : 0,
-                                    y: isInView ? [20, 0, 0, -20] : 20,
-                                    transition: {
-                                        times: [0, 0.1, 0.9, 1],
-                                        duration: 4,
-                                        delay: index * 4,
-                                        ease: "easeInOut"
-                                    }
-                                }}
-                                style={{
-                                    position: "absolute",
-                                    width: "100%",
-                                    height: "100%",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    pointerEvents: "none"
-                                }}
-                            >
-                                {line}
-                            </motion.p>
-                        ))}
-                    </div>
-
-                    {/* Celebration Message Container */}
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{
-                            opacity: isInView ? 1 : 0,
-                            transition: {
-                                delay: anniversaryText.length * 4 + 0.5,
-                                duration: 0.8
-                            }
-                        }}
-                        className="relative w-full min-h-[60vh] flex flex-col items-center justify-center bg-black px-4 py-8 md:p-8"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        className="text-center w-full max-w-4xl mx-auto px-3 md:px-8"
                     >
-                        {/* Text Box */}
+                        {/* Text Animation */}
+                        <div className="text-center max-w-3xl mx-auto bg-black/30 p-4 md:p-6 rounded-lg backdrop-blur-lg mt-2 md:mt-4 mb-6 md:mb-12 h-[80px] md:h-[72px] flex items-center justify-center overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+                            {anniversaryText.map((line, index) => (
+                                <motion.p
+                                    key={index}
+                                    className="text-base md:text-xl text-pink-300/90 font-light absolute px-2"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{
+                                        opacity: isInView ? [0, 1, 1, 0] : 0,
+                                        y: isInView ? [20, 0, 0, -20] : 20,
+                                        transition: {
+                                            times: [0, 0.1, 0.9, 1],
+                                            duration: 4,
+                                            delay: index * 4,
+                                            ease: "easeInOut"
+                                        }
+                                    }}
+                                    style={{
+                                        position: "absolute",
+                                        width: "100%",
+                                        height: "100%",
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "center",
+                                        pointerEvents: "none"
+                                    }}
+                                >
+                                    {line}
+                                </motion.p>
+                            ))}
+                        </div>
+
+                        {/* Celebration Message Container */}
                         <motion.div
-                            ref={textRef}
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0 }}
                             animate={{
                                 opacity: isInView ? 1 : 0,
-                                y: isInView ? 0 : 20,
                                 transition: {
-                                    delay: anniversaryText.length * 4 + 0.8,
+                                    delay: anniversaryText.length * 4 + 0.5,
                                     duration: 0.8
                                 }
                             }}
-                            className="bg-black/40 border border-pink-300/50 p-8 md:p-12 rounded-xl backdrop-blur-lg max-w-4xl mx-auto w-full shadow-lg relative overflow-hidden"
+                            className="relative w-full min-h-[60vh] flex flex-col items-center justify-center bg-black px-4 py-8 md:p-8"
                         >
-                            <motion.p className="text-base md:text-xl text-pink-300/90 drop-shadow-sm font-extralight leading-loose md:leading-loose text-left px-4 md:px-8 py-2 md:py-4 max-w-[95%] mx-auto">
-                                {typingText.split("").map((char, index) => (
-                                    <motion.span
-                                        key={index}
-                                        initial={{ opacity: 0 }}
-                                        animate={{
-                                            opacity: isInView ? 1 : 0,
-                                            transition: {
-                                                duration: 0.1,
-                                                delay: (anniversaryText.length * 4 + 2.0) + index * 0.05
-                                            }
-                                        }}
-                                    >
-                                        {char}
-                                    </motion.span>
-                                ))}
-                            </motion.p>
-                        </motion.div>
+                            {/* Text Box */}
+                            <motion.div
+                                ref={textRef}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{
+                                    opacity: isInView ? 1 : 0,
+                                    y: isInView ? 0 : 20,
+                                    transition: {
+                                        delay: anniversaryText.length * 4 + 0.8,
+                                        duration: 0.8
+                                    }
+                                }}
+                                className="bg-black/40 border border-pink-300/50 p-8 md:p-12 rounded-xl backdrop-blur-lg max-w-4xl mx-auto w-full shadow-lg relative overflow-hidden"
+                            >
+                                <motion.p className="text-base md:text-xl text-pink-300/90 drop-shadow-sm font-extralight leading-loose md:leading-loose text-left px-4 md:px-8 py-2 md:py-4 max-w-[95%] mx-auto">
+                                    {typingText.split("").map((char, index) => (
+                                        <motion.span
+                                            key={index}
+                                            initial={{ opacity: 0 }}
+                                            animate={{
+                                                opacity: isInView ? 1 : 0,
+                                                transition: {
+                                                    duration: 0.1,
+                                                    delay: (anniversaryText.length * 4 + 2.0) + index * 0.05
+                                                }
+                                            }}
+                                        >
+                                            {char}
+                                        </motion.span>
+                                    ))}
+                                </motion.p>
+                            </motion.div>
 
-                        {/* Button */}
-                        <motion.button
-                            className="mt-8 bg-pink-300/20 hover:bg-pink-300/30 text-pink-300/90 px-4 md:px-6 py-2 md:py-3 rounded-md transition-colors duration-300 flex items-center gap-2 backdrop-blur-lg"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{
-                                opacity: isInView ? 1 : 0,
-                                scale: isInView ? 1 : 0.8,
-                                transition: {
-                                    delay: (anniversaryText.length * 4) + (typingText.length * 0.05) + 2,
-                                    duration: 0.5
-                                }
-                            }}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            onClick={() => {
-                                if (onComplete) {
-                                    onComplete();
-                                }
-                            }}
-                        >
-                            <FaHeart></FaHeart> ยังไม่จบค่ะ... <FaArrowRight className="text-pink-300/90" />
-                        </motion.button>
+                            {/* Button */}
+                            <motion.button
+                                className="mt-8 bg-pink-300/20 hover:bg-pink-300/30 text-pink-300/90 px-4 md:px-6 py-2 md:py-3 rounded-md transition-colors duration-300 flex items-center gap-2 backdrop-blur-lg"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{
+                                    opacity: isInView ? 1 : 0,
+                                    scale: isInView ? 1 : 0.8,
+                                    transition: {
+                                        delay: (anniversaryText.length * 4) + (typingText.length * 0.05) + 2,
+                                        duration: 0.5
+                                    }
+                                }}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => {
+                                    if (onComplete) {
+                                        onComplete();
+                                    }
+                                }}
+                            >
+                                <FaHeart></FaHeart> ยังไม่จบค่ะ... <FaArrowRight className="text-pink-300/90" />
+                            </motion.button>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
-            </motion.div>
+            </div>
         </div>
     );
 }

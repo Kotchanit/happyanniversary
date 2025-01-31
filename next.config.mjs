@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
-// const isProd = process.env.NODE_ENV === "production"; // Detect production
+const isProd = process.env.NODE_ENV === "production"; // Detect production
 
 const nextConfig = {
   output: "export", // Required for GitHub Pages
-  basePath: "/happyanniversary",
-  assetPrefix:"/happyanniversary/",
+  basePath: isProd ? "/happyanniversary" : "", // Ensures correct paths in GitHub Pages
+  assetPrefix: isProd ? "/happyanniversary/" : "", // Fixes asset paths
   images: {
     unoptimized: true, // Disable Next.js image optimization for GitHub Pages
   },

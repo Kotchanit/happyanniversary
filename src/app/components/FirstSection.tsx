@@ -55,7 +55,7 @@ export default function FirstSection({ onComplete }: FirstSectionProps) {
         </motion.div>
       ) : (
         <>
-          <div className="absolute inset-0 flex flex-col items-center justify-center -mt-16 text-center text-white text-xl md:text-2xl font-light -mt-24">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white text-xl md:text-2xl font-light -mt-24">
             {step === 1 && (
               <motion.div
                 key="praewa"

@@ -105,9 +105,9 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                                         duration: 0.8
                                     }
                                 }}
-                                className="bg-black/40 border border-pink-300/50 p-4 md:p-10 rounded-xl backdrop-blur-lg w-full max-w-5xl mx-auto shadow-lg relative overflow-hidden"
+                                className="bg-black/40 border border-pink-300/50 p-4 md:p-10 rounded-xl backdrop-blur-lg w-full max-w-5xl mx-auto shadow-lg relative overflow-hidden -mt-8"
                             >
-                                <motion.p className="text-base md:text-lg text-pink-300/90 drop-shadow-sm font-light leading-relaxed md:leading-relaxed text-justify max-w-full mx-auto whitespace-pre-wrap px-4 md:px-6 -mt-8">
+                                <motion.p className="text-base md:text-lg text-pink-300/90 drop-shadow-sm font-light leading-relaxed md:leading-relaxed text-justify max-w-full mx-auto whitespace-pre-wrap px-4 md:px-6">
                                     {typingText.split(" ").map((word, index) => (
                                         <motion.span
                                             key={index}

@@ -225,7 +225,7 @@ export default function ThirdSection() {
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#F7A6C4] to-[#F28AB2] relative overflow-hidden">
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center -mt-8">
         {isGiftOpen && cherryBlossoms.map(blossom => (
           <motion.div
             key={blossom.id}
@@ -419,6 +419,48 @@ export default function ThirdSection() {
               <motion.div
                 className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-lg overflow-hidden shadow-2xl border-4 border-white/20"
               >
+                {!imageLoaded && (
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+                    <div className="flex gap-2">
+                      <motion.div
+                        className="w-3 h-3 bg-white rounded-full"
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [1, 0.5, 1],
+                        }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          delay: 0,
+                        }}
+                      />
+                      <motion.div
+                        className="w-3 h-3 bg-white rounded-full"
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [1, 0.5, 1],
+                        }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          delay: 0.2,
+                        }}
+                      />
+                      <motion.div
+                        className="w-3 h-3 bg-white rounded-full"
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [1, 0.5, 1],
+                        }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          delay: 0.4,
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
                 <Image
                   src="/happyanniversary/anniversary.png"
                   alt="Anniversary"
@@ -430,7 +472,6 @@ export default function ThirdSection() {
                   style={{ objectFit: "cover" }}
                 />
               </motion.div>
-
               {imageLoaded && (
                 <>
                   {/* Happy Anniversary Text */}

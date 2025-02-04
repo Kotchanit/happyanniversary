@@ -226,7 +226,7 @@ export default function ThirdSection() {
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#F7A6C4] to-[#F28AB2] relative overflow-hidden">
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-        {isGiftOpen && cherryBlossoms.map(blossom => (
+        {(isGiftOpen || currentStep === 3) && cherryBlossoms.map(blossom => (
           <motion.div
             key={blossom.id}
             initial={{

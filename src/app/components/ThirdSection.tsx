@@ -183,6 +183,7 @@ export default function ThirdSection() {
   const [currentStep, setCurrentStep] = useState(1);
   const [textIndex, setTextIndex] = useState(0);
   const [isGiftOpen, setIsGiftOpen] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const cherryBlossoms = useMemo(() => {
     return Array.from({ length: 20 }).map((_, i) => ({
@@ -280,7 +281,7 @@ export default function ThirdSection() {
             <motion.div
               key="image-and-text"
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={{ opacity: imageLoaded ? 1 : 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.8 }}
               className="flex flex-col items-center gap-8"
@@ -289,23 +290,37 @@ export default function ThirdSection() {
               <motion.div
                 className="relative w-[280px] h-[280px] md:w-[400px] md:h-[400px] rounded-lg overflow-hidden shadow-2xl border-4 border-white/20"
               >
-                <Image src="/happyanniversary/anniversary.png" alt="Anniversary" width={400} height={400} unoptimized />
+                <Image
+                  src="/happyanniversary/anniversary.png"
+                  alt="Anniversary"
+                  width={400}
+                  height={533}
+                  unoptimized
+                  onLoadingComplete={() => setImageLoaded(true)}
+                  priority
+                  style={{ objectFit: "cover" }}
+                />
               </motion.div>
 
-              {/* Happy Anniversary Text */}
-              <div className="text-3xl md:text-5xl font-bold text-white tracking-wide text-center">
-                {letters.slice(0, textIndex).map((letter, index) => (
-                  <motion.span
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="inline-block"
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </div>
+              {imageLoaded && (
+                <>
+
+                  {/* Happy Anniversary Text */}
+                  < div className="text-3xl md:text-5xl font-bold text-white tracking-wide text-center">
+                    {letters.slice(0, textIndex).map((letter, index) => (
+                      <motion.span
+                        key={index}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="inline-block"
+                      >
+                        {letter}
+                      </motion.span>
+                    ))}
+                  </div>
+                </>
+              )}
 
               {/* Final Button appears after text is complete */}
               {textIndex === letters.length && currentStep === 3 && (
@@ -437,6 +452,6 @@ export default function ThirdSection() {
           )}
         </AnimatePresence>
       </div>
-    </div>
+    </div >
   );
 }

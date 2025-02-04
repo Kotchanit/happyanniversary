@@ -375,7 +375,7 @@ export default function ThirdSection() {
                         objectFit: "contain",
                         filter: "drop-shadow(0 0 10px rgba(255,255,255,0.5))"
                       }}
-                      className="rounded-lg"
+                      className="rounded-lg object-bottom"
                     />
                   </motion.div>
                   <motion.p

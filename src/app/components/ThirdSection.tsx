@@ -225,7 +225,7 @@ export default function ThirdSection() {
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#F7A6C4] to-[#F28AB2] relative overflow-hidden">
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center -mt-8">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
         {isGiftOpen && cherryBlossoms.map(blossom => (
           <motion.div
             key={blossom.id}
@@ -267,7 +267,7 @@ export default function ThirdSection() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 1.5, opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-8xl md:text-9xl font-bold text-white tracking-wider"
+              className="text-8xl md:text-9xl font-bold text-white tracking-wider -mt-8"
             >
               SO
             </motion.div>
@@ -277,7 +277,7 @@ export default function ThirdSection() {
           {/* Step 2: Gift Box */}
           {currentStep === 2 && (
             <motion.div
-              className="flex flex-col items-center gap-8"
+              className="flex flex-col items-center gap-8 -mt-8"
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0, opacity: 0 }}
@@ -375,7 +375,7 @@ export default function ThirdSection() {
                         objectFit: "contain",
                         filter: "drop-shadow(0 0 10px rgba(255,255,255,0.5))"
                       }}
-                      className="rounded-lg object-bottom"
+                      className="rounded-lg"
                     />
                   </motion.div>
                   <motion.p
@@ -413,7 +413,7 @@ export default function ThirdSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col items-center gap-8"
+              className="flex flex-col items-center gap-8 -mt-8"
             >
               {/* Image */}
               <motion.div
@@ -469,7 +469,7 @@ export default function ThirdSection() {
                   unoptimized
                   onLoadingComplete={() => setImageLoaded(true)}
                   priority
-                  style={{ objectFit: "cover" }}
+                  className="object-cover object-bottom"
                 />
               </motion.div>
               {imageLoaded && (

@@ -135,7 +135,7 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                                     opacity: isInView ? 1 : 0,
                                     scale: isInView ? 1 : 0.8,
                                     transition: {
-                                        delay: (anniversaryText.length * 4) + (typingText.length * 0.05) + 2,
+                                        delay: (anniversaryText.length * 4) + (typingText.split(" ").length * 0.2) + 2,
                                         duration: 0.5
                                     }
                                 }}
@@ -147,7 +147,7 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                                     }
                                 }}
                             >
-                                <FaHeart></FaHeart> ยังไม่จบค่ะ... <FaArrowRight className="text-pink-300/90" />
+                                <FaHeart /> ยังไม่จบค่ะ... <FaArrowRight className="text-pink-300/90" />
                             </motion.button>
                         </motion.div>
                     </motion.div>

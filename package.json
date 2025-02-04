@@ -2,6 +2,8 @@
   "name": "happyanniversary",
   "version": "0.1.0",
   "private": true,
+  "author": "Kotchanit Emsawat",
+  "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

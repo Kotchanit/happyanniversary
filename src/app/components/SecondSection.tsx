@@ -50,7 +50,7 @@ export default function SecondSection({ onComplete }: SeccondSectionProps) {
                         className="text-center w-full max-w-4xl mx-auto px-3 md:px-8"
                     >
                         {/* Text Animation */}
-                        <div className="text-center max-w-3xl mx-auto bg-black/30 p-4 md:p-6 rounded-lg backdrop-blur-lg h-[80px] md:h-[72px] flex items-center justify-center overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full">
+                        <div className="text-center max-w-3xl mx-auto bg-black/30 p-4 md:p-6 rounded-lg backdrop-blur-lg h-[80px] md:h-[72px] flex items-center justify-center overflow-hidden absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full -mt-32">
                             {anniversaryText.map((line, index) => (
                                 <motion.p
                                     key={index}

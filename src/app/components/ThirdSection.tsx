@@ -208,7 +208,7 @@ export default function ThirdSection() {
 
   useEffect(() => {
     // Start revealing letters after step 2 appears
-    if (currentStep === 2 && textIndex < letters.length) {
+    if (currentStep === 3 && textIndex < letters.length) {
       const timer = setTimeout(() => {
         setTextIndex((prev) => prev + 1);
       }, 300); // Increased delay from 150ms to 300ms for slower animation
@@ -217,14 +217,11 @@ export default function ThirdSection() {
   }, [currentStep, textIndex, letters.length]);
 
   useEffect(() => {
-    // Show final button after all letters are revealed
-    if (textIndex === letters.length) {
-      const timer = setTimeout(() => {
-        setCurrentStep(3);
-      }, 1000);
-      return () => clearTimeout(timer);
+    // Reset text index when changing steps
+    if (currentStep !== 3) {
+      setTextIndex(0);
     }
-  }, [textIndex, letters.length]);
+  }, [currentStep]);
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#F7A6C4] to-[#F28AB2] relative overflow-hidden">
@@ -276,12 +273,144 @@ export default function ThirdSection() {
             </motion.div>
           )}
 
-          {/* Step 2: Image and Happy Anniversary Text */}
-          {(currentStep === 2 || currentStep === 3) && (
+
+          {/* Step 2: Gift Box */}
+          {currentStep === 2 && (
             <motion.div
-              key="image-and-text"
+              className="flex flex-col items-center gap-8"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+            >
+              {!isGiftOpen ? (
+                <>
+                  <motion.div
+                    className="cursor-pointer relative"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    animate={{
+                      y: [0, -20, 0],
+                      scale: [1, 1.02, 1],
+                      filter: ["drop-shadow(0 0 0px rgba(255,255,255,0.5))", "drop-shadow(0 0 15px rgba(255,255,255,0.8))", "drop-shadow(0 0 0px rgba(255,255,255,0.5))"],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    onClick={() => setIsGiftOpen(true)}
+                  >
+                    <motion.div
+                      className="text-white text-lg md:text-xl font-medium text-center whitespace-nowrap mb-20"
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: [0, 1, 1, 0],
+                        y: [-5, 0, 0, 5]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        repeatType: "reverse"
+                      }}
+                    >
+                      Click to Open! 🎁
+                    </motion.div>
+                    <GiftBox />
+                  </motion.div>
+                  <motion.div
+                    className="flex justify-center items-center text-white text-xl md:text-2xl text-center font-medium z-50 mt-14"
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: [0, 1, 1, 0],
+                      y: [-5, 0, 0, 5]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      repeatType: "reverse"
+                    }}
+                  >
+                    ของขวัญสุดพิเศษให้เธอ <FaHeart className="ml-4" />
+                  </motion.div>
+                </>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center gap-6 z-50"
+                >
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-white text-lg md:text-xl text-center max-w-[600px] leading-relaxed"
+                  >
+                    I give you a PS5 for girl. :P
+                  </motion.p>
+                  <motion.div
+                    className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] p-6"
+                    initial={{ rotate: 0, x: 0, opacity: 0, scale: 0.5 }}
+                    animate={{
+                      x: [-10, 10, -10],
+                      rotate: [-3, 3, -3],
+                      opacity: 1,
+                      scale: [0.5, 1.1, 1],
+                    }}
+                    transition={{
+                      duration: 2.5,
+                      opacity: { duration: 0.8 },
+                      scale: { duration: 1.2, ease: "easeOut" },
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      repeatDelay: 0.5
+                    }}
+                  >
+                    <Image
+                      src="/happyanniversary/dyson.png"
+                      alt="Dyson Air Straightener"
+                      fill
+                      style={{
+                        objectFit: "contain",
+                        filter: "drop-shadow(0 0 10px rgba(255,255,255,0.5))"
+                      }}
+                      className="rounded-lg"
+                    />
+                  </motion.div>
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-white text-lg md:text-xl text-center max-w-[600px] leading-relaxed"
+                  >
+                    {`ชอบไหมคะ คนสวย  อิอิ >_<`}
+                  </motion.p>
+                  <motion.button
+                    className="mt-8 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 border border-white/20 transition-colors duration-300 text-lg md:text-xl font-medium"
+                    onClick={() => {
+                      setCurrentStep(3);
+                      setImageLoaded(false);
+                      setTextIndex(0);
+                      setIsGiftOpen(false); // Reset gift state when moving to next step
+                    }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1 }}
+                  >
+                    <FaHeart /> สุดท้ายละ... <FaArrowRight />
+                  </motion.button>
+                </motion.div>
+              )}
+            </motion.div>
+          )}
+
+          {/* Anniversary Image and Text */}
+          {currentStep === 3 && (
+            <motion.div
+              key="anniversary-content"
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: imageLoaded ? 1 : 0 }}
+              animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.8 }}
               className="flex flex-col items-center gap-8"
@@ -294,7 +423,7 @@ export default function ThirdSection() {
                   src="/happyanniversary/anniversary.png"
                   alt="Anniversary"
                   width={400}
-                  height={533}
+                  height={600}
                   unoptimized
                   onLoadingComplete={() => setImageLoaded(true)}
                   priority
@@ -304,9 +433,8 @@ export default function ThirdSection() {
 
               {imageLoaded && (
                 <>
-
                   {/* Happy Anniversary Text */}
-                  < div className="text-3xl md:text-5xl font-bold text-white tracking-wide text-center">
+                  <div className="text-3xl md:text-5xl font-bold text-white tracking-wide text-center">
                     {letters.slice(0, textIndex).map((letter, index) => (
                       <motion.span
                         key={index}
@@ -319,134 +447,16 @@ export default function ThirdSection() {
                       </motion.span>
                     ))}
                   </div>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-white text-lg md:text-xl text-center max-w-[600px] leading-relaxed p-6"
+                  >
+                    จบแล้ว.. วันสุดท้ายของทริปญี่ปุ่นของเราพอดีด้วย ขอบคุณน้า ที่พาหนูมาเที่ยวญี่ปุ่น ดีใจมากเลยค่ะ เป็นของขวัญที่ดีที่สุดเลย เหมือนความ goal ในชีวิตหนูสำเร็จไปอีกเรื่องเพราะเธอเลย เหมือนฝันเลยที่ตอนนี้ได้มาอยู่ที่นี่ ตอนนี้ ได้มาฉลองวาเลนไทน์กับวันครบรอบในประเทศในฝัน มันเริ่ดมากอะ คือชอบมากๆเลยค่ะ มีความสุขมากๆๆๆ ขอบคุณมากๆ เลยนะคะ รักเธอมากๆนะคะ ตุ้บๆๆๆ xoxo
+                  </motion.p>
                 </>
-              )}
-
-              {/* Final Button appears after text is complete */}
-              {textIndex === letters.length && currentStep === 3 && (
-                <motion.button
-                  key="final-button"
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 20
-                  }}
-                  className="mt-8 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 border border-white/20 transition-colors duration-300 text-lg md:text-xl font-medium"
-                  onClick={() => setCurrentStep(4)}
-                >
-                  <FaHeart></FaHeart> สุดท้ายละ... <FaArrowRight />
-                </motion.button>
-              )}
-            </motion.div>
-          )}
-
-          {/* Step 4: Gift Box */}
-          {currentStep === 4 && (
-            <motion.div
-              className="flex flex-col items-center gap-8"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            >
-              <motion.div
-                className="cursor-pointer relative"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{
-                  y: [0, -20, 0],
-                  scale: [1, 1.02, 1],
-                  filter: ["drop-shadow(0 0 0px rgba(255,255,255,0.5))", "drop-shadow(0 0 15px rgba(255,255,255,0.8))", "drop-shadow(0 0 0px rgba(255,255,255,0.5))"],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                onClick={() => setIsGiftOpen(true)}
-              >
-                {/* Floating hint text */}
-                {!isGiftOpen && (
-                  <motion.div
-                    className=" text-white text-lg md:text-xl font-medium text-center whitespace-nowrap mb-20"
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: [0, 1, 1, 0],
-                      y: [-5, 0, 0, 5]
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      repeatType: "reverse"
-                    }}
-                  >
-                    Click to Open! 🎁
-                  </motion.div>
-                )}
-                {!isGiftOpen ? <GiftBox /> : (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center gap-6 z-50"
-                  >
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                      className="text-white text-lg md:text-xl text-center max-w-[600px] leading-relaxed"
-                    >
-                      I give you a PS5 for girl. :P
-                    </motion.p>
-                    <motion.div
-                      className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] p-6"
-                      initial={{ rotate: 0, x: 0, opacity: 1 }} // Ensure opacity is always 1
-                      animate={{
-                        x: [-10, 10, -10], // Moves left and right smoothly
-                        rotate: [-3, 3, -3], // Adds a slight tilt while swaying
-                      }}
-                      transition={{
-                        duration: 2.5, // Slower movement for a natural feel
-                        ease: "easeInOut",
-                        repeat: Infinity,
-                        repeatType: "reverse"
-                      }}
-                    >
-                      <Image
-                        src="/happyanniversary/dyson.png"
-                        alt="Dyson Air Straightener"
-                        fill
-                        style={{ objectFit: "contain" }}
-                        className="rounded-lg"
-                      />
-                    </motion.div>
-                    <motion.p
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.5 }}
-                      className="text-white text-lg md:text-xl text-center max-w-[600px] leading-relaxed p-6"
-                    >
-                      จบแล้ว.. วันสุดท้ายของทริปญี่ปุ่นของเราพอดีด้วย ขอบคุณน้า ที่พาหนูมาเที่ยวญี่ปุ่น ดีใจมากเลยค่ะ เป็นของขวัญที่ดีที่สุดเลย เหมือนความ goal ในชีวิตหนูสำเร็จไปอีกเรื่องเพราะเธอเลย เหมือนฝันเลยที่ตอนนี้ได้มาอยู่ที่นี่ ตอนนี้ ได้มาฉลองวาเลนไทน์กับวันครบรอบในประเทศในฝัน มันเริ่ดมากอะ คือชอบมากๆเลยค่ะ มีความสุขมากๆๆๆ ขอบคุณมากๆ เลยนะคะ รักเธอมากๆนะคะ ตุ้บๆๆๆ xoxo
-                    </motion.p>
-                  </motion.div>
-                )}
-              </motion.div>
-              {!isGiftOpen && (
-                <motion.div
-                  className="flex justify-center items-center text-white text-xl md:text-2xl text-center font-medium z-50 mt-14"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    opacity: [0, 1, 1, 0],
-                    y: [-5, 0, 0, 5]
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                >
-                  ของขวัญสุดพิเศษให้เธอ <FaHeart className="ml-4"></FaHeart>
-                </motion.div>
               )}
             </motion.div>
           )}

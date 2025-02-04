@@ -488,6 +488,14 @@ export default function ThirdSection() {
                         {letter}
                       </motion.span>
                     ))}
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: textIndex >= letters.length ? 1 : 0, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-xl md:text-2xl mt-2 font-normal"
+                    >
+                      16 FEBRUARY 2025
+                    </motion.div>
                   </div>
 
                   <motion.p
